@@ -1,0 +1,18 @@
+package com.mjtech.fintesthub.ui.common.routes
+
+import kotlinx.serialization.Serializable
+
+@Serializable
+data object SplashRoute
+
+@Serializable
+data object HomeRoute
+
+@Serializable
+data object PaymentRoute
+
+@Serializable
+data object SettingsRoute
+
+@Serializable
+data class CheckoutRoute(val valueInCents: Long)
