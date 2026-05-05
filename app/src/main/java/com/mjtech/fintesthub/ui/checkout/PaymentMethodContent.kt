@@ -80,7 +80,7 @@ fun PaymentMethodItem(
         Icon(
             painter = painterResource(method.icon),
             contentDescription = method.name,
-            tint = method.color.copy(alpha = 0.4f),
+            tint = method.color,
             modifier = Modifier.size(32.dp)
         )
         Spacer(modifier = Modifier.width(16.dp))
