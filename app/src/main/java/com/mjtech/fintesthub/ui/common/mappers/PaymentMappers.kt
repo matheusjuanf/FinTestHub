@@ -6,6 +6,7 @@ import com.mjtech.fintesthub.R
 import com.mjtech.fintesthub.ui.checkout.models.PaymentMethodUi
 import com.mjtech.fintesthub.ui.theme.MainColor
 import com.mjtech.fintesthub.ui.theme.MainDarkColor
+import com.mjtech.fintesthub.ui.theme.MainLightColor
 import com.mjtech.fintesthub.ui.theme.SecondaryColor
 import com.mjtech.fintesthub.ui.theme.SecondaryDarkColor
 
@@ -23,9 +24,9 @@ fun PaymentMethod.toUi(): PaymentMethodUi {
 
 private fun getUiAssetsForPaymentType(methodId: String): Triple<Int, Color, String> {
     return when (methodId) {
-        "DEBIT" -> Triple(R.drawable.ic_credit_card, MainDarkColor, "Cartão de Débito")
-        "CREDIT" -> Triple(R.drawable.ic_credit_card, MainColor, "Cartão de Crédito")
-        "PIX" -> Triple(R.drawable.ic_bank, SecondaryDarkColor, "PIX e carteiras digitais")
+        "DEBIT" -> Triple(R.drawable.ic_credit_card, MainColor, "Cartão de Débito")
+        "CREDIT" -> Triple(R.drawable.ic_credit_card, MainLightColor, "Cartão de Crédito")
+        "PIX" -> Triple(R.drawable.ic_qrcode, SecondaryDarkColor, "PIX e Carteiras Digitais")
         "VOUCHER" -> Triple(R.drawable.ic_credit_card, SecondaryColor, "Vale alimentação ou refeição")
         else -> Triple(R.drawable.ic_credit_card, Color.Gray, "Método desconhecido")
     }

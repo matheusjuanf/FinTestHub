@@ -28,7 +28,8 @@ import com.mjtech.core.common.Result
 import com.mjtech.fintesthub.R
 import com.mjtech.fintesthub.ui.common.components.FinButton
 import com.mjtech.fintesthub.ui.common.util.toCurrencyFormat
-import com.mjtech.fintesthub.ui.theme.MainColor
+import com.mjtech.fintesthub.ui.theme.MainDarkColor
+import com.mjtech.fintesthub.ui.theme.SecondLightColor
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -121,7 +122,7 @@ fun HeaderDisplay(value: String) {
         modifier = Modifier
             .fillMaxWidth()
             .height(100.dp),
-        color = MainColor.copy(alpha = 0.3f)
+        color = MainDarkColor
     ) {
         Column(
             modifier = Modifier
@@ -133,12 +134,12 @@ fun HeaderDisplay(value: String) {
             Text(
                 text = stringResource(R.string.amount_to_pay),
                 style = MaterialTheme.typography.bodyLarge,
-                color = Color.Black
+                color = Color.White
             )
             Text(
                 text = value,
                 style = MaterialTheme.typography.headlineLarge.copy(fontSize = 36.sp),
-                color = MainColor,
+                color = SecondLightColor,
                 fontWeight = FontWeight.Bold
             )
         }
