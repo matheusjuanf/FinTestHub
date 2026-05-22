@@ -46,16 +46,16 @@ fun SettingsPage(
                         .padding(horizontal = 16.dp, vertical = 8.dp),
                     horizontalAlignment = Alignment.Start
                 ) {
-                    val isPrintingEnabled =
-                        uiState.editableSettings[MainSettingsKeys.PRINT_RECEIPT] as? Boolean
+                    val isDarkModeEnabled =
+                        uiState.editableSettings[MainSettingsKeys.DARK_MODE] as? Boolean
                             ?: false
 
                     item {
                         FinSwitch(
-                            title = "Imprimir comprovantes",
-                            subtitle = "Habilitar impressão automática de comprovantes",
-                            isChecked = isPrintingEnabled,
-                            onCheckedChange = viewModel::onPrintReceiptToggle
+                            title = "Modo Escuro",
+                            subtitle = "Habilitar aparência escura em todo o aplicativo",
+                            isChecked = isDarkModeEnabled,
+                            onCheckedChange = viewModel::onDarkModeToggle
                         )
                     }
                 }

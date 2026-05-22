@@ -27,7 +27,6 @@ import androidx.compose.ui.unit.dp
 import com.mjtech.fintesthub.R
 import com.mjtech.fintesthub.ui.checkout.models.PaymentMethodUi
 import com.mjtech.fintesthub.ui.theme.Gray300
-import com.mjtech.fintesthub.ui.theme.Gray600
 import com.mjtech.fintesthub.ui.theme.Typography
 
 @Composable
@@ -92,17 +91,17 @@ fun PaymentMethodItem(
             Text(
                 text = method.description,
                 style = Typography.labelMedium,
-                color = Gray600
+                color = MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
         Icon(
             imageVector = Icons.Default.KeyboardArrowRight,
             contentDescription = null,
-            tint = Gray600
+            tint = MaterialTheme.colorScheme.onSurfaceVariant
         )
     }
     HorizontalDivider(
-        modifier = Modifier.padding(start = 64.dp),
+        modifier = Modifier.padding(start = 64.dp, end = 16.dp),
         thickness = 0.5.dp,
         color = Gray300
     )

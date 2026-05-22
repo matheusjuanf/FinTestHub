@@ -27,7 +27,6 @@ import com.mjtech.core.payment.InstallmentOption
 import com.mjtech.fintesthub.R
 import com.mjtech.fintesthub.ui.common.util.toCurrencyFormat
 import com.mjtech.fintesthub.ui.theme.Gray300
-import com.mjtech.fintesthub.ui.theme.Gray600
 import com.mjtech.fintesthub.ui.theme.MainColor
 import com.mjtech.fintesthub.ui.theme.Typography
 
@@ -118,11 +117,11 @@ fun InstallmentItem(
         Icon(
             imageVector = Icons.Default.KeyboardArrowRight,
             contentDescription = null,
-            tint = Gray600
+            tint = MaterialTheme.colorScheme.onSurfaceVariant
         )
     }
     HorizontalDivider(
-        modifier = Modifier.padding(start = 64.dp),
+        modifier = Modifier.padding(start = 64.dp, end = 16.dp),
         thickness = 0.5.dp,
         color = Gray300
     )

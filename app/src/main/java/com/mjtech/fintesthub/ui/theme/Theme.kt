@@ -8,26 +8,40 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.compositionLocalOf
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
     primary = MainColor,
+    onPrimary = White100,
     secondary = MainLightColor,
     tertiary = SecondaryColor,
-    background = BackgroundDarkColor
+    background = BackgroundDarkColor,
+    surface = Gray600,
+    onBackground = White100,
+    onSurface = White100,
+    onSurfaceVariant = Gray300
 )
 
 private val LightColorScheme = lightColorScheme(
     primary = MainColor,
     secondary = MainLightColor,
     tertiary = SecondaryColor,
-    background = BackgroundLightColor
+    background = BackgroundLightColor,
+    surface = Color.White,
+    onBackground = Gray600,
+    onSurface = Gray600,
+    onSurfaceVariant = Gray400,
 )
+
+val LocalDarkTheme = compositionLocalOf { false }
 
 @Composable
 fun FinAndroidTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
@@ -40,9 +54,11 @@ fun FinAndroidTheme(
         else -> LightColorScheme
     }
 
-    MaterialTheme(
-        colorScheme = colorScheme,
-        typography = Typography,
-        content = content
-    )
+    CompositionLocalProvider(LocalDarkTheme provides darkTheme) {
+        MaterialTheme(
+            colorScheme = colorScheme,
+            typography = Typography,
+            content = content
+        )
+    }
 }
