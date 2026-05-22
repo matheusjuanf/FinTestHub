@@ -27,8 +27,8 @@ class SettingsViewModel(
         loadEditableSettings()
     }
 
-    fun onPrintReceiptToggle(isChecked: Boolean) {
-        val key = MainSettingsKeys.PRINT_RECEIPT
+    fun onDarkModeToggle(isChecked: Boolean) {
+        val key = MainSettingsKeys.DARK_MODE
 
         updateSettingValue(key, isChecked)
 

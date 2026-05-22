@@ -30,13 +30,19 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.mjtech.fintesthub.R
+import com.mjtech.fintesthub.ui.theme.Gray600
+import com.mjtech.fintesthub.ui.theme.LocalDarkTheme
 import com.mjtech.fintesthub.ui.theme.Typography
+import com.mjtech.fintesthub.ui.theme.White100
 
 val MAX_KEYPAD_WIDTH = 400.dp
 
 
 @Composable
 fun PaymentPage(onNavigate: (Long) -> Unit) {
+
+    val isDark = LocalDarkTheme.current
+
     val viewModel: PaymentViewModel = viewModel()
 
     val currentUiState = viewModel.uiState.value
@@ -84,7 +90,7 @@ fun PaymentPage(onNavigate: (Long) -> Unit) {
 
             ActionButton(
                 label = stringResource(R.string.pay),
-                color = Color(0xFF4CAF50)
+                color = if (isDark) Color(0xFF2F6E31) else Color(0xFF4CAF50)
             ) {
                 val isPaymentValid = viewModel.onPaymentAction()
                 if (isPaymentValid) {
@@ -105,7 +111,7 @@ fun PaymentPage(onNavigate: (Long) -> Unit) {
 fun DisplayField(value: String) {
     Surface(
         shape = MaterialTheme.shapes.medium,
-        color = Color.White,
+        color = MaterialTheme.colorScheme.surface,
         modifier = Modifier
             .fillMaxWidth(0.9f)
             .height(54.dp),
@@ -119,7 +125,7 @@ fun DisplayField(value: String) {
                 text = value,
                 fontSize = 32.sp,
                 fontWeight = FontWeight.SemiBold,
-                color = Color.Black
+                color = MaterialTheme.colorScheme.onSurface
             )
         }
     }
@@ -180,12 +186,23 @@ fun KeypadButton(
     modifier: Modifier = Modifier,
     onClick: () -> Unit
 ) {
+    val isDark = LocalDarkTheme.current
+
     val buttonColor = when (text) {
-        "X" -> Color(0xFFF44336)
-        "<" -> Color(0xFFFFC107)
-        else -> Color(0xFFE3F2FD)
+        "X" -> {
+            if (isDark) Color(0xFF9B251F) else Color(0xFFF44336)
+        }
+
+        "<" -> {
+            if (isDark) Color(0xFFB48F23) else Color(0xFFFFC107)
+        }
+
+        else -> {
+            if (isDark) Gray600 else Color(0xFFE3F2FD)
+        }
     }
-    val contentColor = if (text == "X" || text == "<") Color.White else Color.Black
+    val contentColor =
+        if (text == "X" || text == "<") White100 else MaterialTheme.colorScheme.onSurface
 
     Button(
         onClick = onClick,

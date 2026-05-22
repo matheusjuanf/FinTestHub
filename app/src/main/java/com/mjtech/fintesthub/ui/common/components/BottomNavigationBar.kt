@@ -2,6 +2,7 @@ package com.mjtech.fintesthub.ui.common.components
 
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
@@ -12,7 +13,6 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.mjtech.fintesthub.ui.common.routes.AppScreen
 import com.mjtech.fintesthub.ui.common.routes.PaymentRoute
-import com.mjtech.fintesthub.ui.theme.Gray400
 import com.mjtech.fintesthub.ui.theme.MainColor
 
 @Composable
@@ -51,9 +51,9 @@ fun RowScope.AddItem(
     NavigationBarItem(
         colors = NavigationBarItemDefaults.colors(
             selectedIconColor = MainColor,
-            unselectedIconColor = Gray400,
+            unselectedIconColor = MaterialTheme.colorScheme.onSurfaceVariant,
             selectedTextColor = MainColor,
-            unselectedTextColor = Gray400,
+            unselectedTextColor = MaterialTheme.colorScheme.onSurfaceVariant,
             indicatorColor = MainColor.copy(alpha = 0.2f)
         ),
         selected = selectedHierarchical,

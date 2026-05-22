@@ -65,10 +65,12 @@ class CheckoutViewModel(
             )
         }
 
-        if (selectedMethod?.requiresInstallments == true && amount > 0.0) {
-            loadInstallmentOptions(methodId, amount)
-        } else if (selectedMethod?.requiresInstallments == false && amount > 0.0) {
-            processPayment()
+        if (amount > 0.00) {
+            if (selectedMethod?.requiresInstallments == true && amount >= 50.00) {
+                loadInstallmentOptions(methodId, amount)
+            } else {
+                processPayment()
+            }
         }
     }
 
